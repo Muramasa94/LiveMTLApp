@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveMTLApp", "LiveMTLApp.csproj", "{4A01B179-1E79-4EAC-077F-E0310F31D951}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A01B179-1E79-4EAC-077F-E0310F31D951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A01B179-1E79-4EAC-077F-E0310F31D951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A01B179-1E79-4EAC-077F-E0310F31D951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A01B179-1E79-4EAC-077F-E0310F31D951}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51021EBA-2242-4FF4-8978-1B7B3A1A72D3}
+	EndGlobalSection
+EndGlobal

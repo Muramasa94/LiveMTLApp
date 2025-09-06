@@ -1,0 +1,24 @@
+﻿<Window x:Class="LiveMTLApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LiveMTLApp"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        WindowState="Maximized"
+        ShowInTaskbar="False">
+    
+    <!-- Root transparent canvas where we can draw text later -->
+    <Canvas Name="OverlayCanvas" Background="Transparent">
+        <!-- Example placeholder text -->
+        <TextBlock Text="Translated text goes here"
+                   Foreground="White"
+                   FontSize="32"
+                   Canvas.Left="100"
+                   Canvas.Top="100"
+                   FontWeight="Bold"
+                   Effect="{DynamicResource}" />
+    </Canvas>
+</Window>
