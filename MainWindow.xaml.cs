@@ -23,6 +23,10 @@ namespace LiveMTLApp;
 /// </summary>
 public partial class MainWindow : Window
 {
+    // Flag to track overlay state
+    private bool _isOverlaying = true;
+
+    // NotifyIcon for system tray
     private NotifyIcon? _notifyIcon;
 
     // Win32 constants
@@ -49,14 +53,31 @@ public partial class MainWindow : Window
         _notifyIcon.Visible = true;
         _notifyIcon.Text = "LiveMTLApp";
 
-        // Create right-click menu
-        var contextMenu = new ContextMenuStrip();
-        contextMenu.Items.Add("Show", null, (s, e) => ShowWindow());
-        contextMenu.Items.Add("Exit", null, (s, e) => ExitApp());
-        _notifyIcon.ContextMenuStrip = contextMenu;
+        // Create the context menu initially
+        UpdateContextMenu();
 
         // Double-click tray icon to toggle window visibility
-        _notifyIcon.DoubleClick += (s, e) => ShowWindow();
+        _notifyIcon.DoubleClick += (s, e) => ToggleWindow();
+    }
+
+    private void UpdateContextMenu()
+    {
+        var contextMenu = new ContextMenuStrip();
+        
+        if (_isOverlaying)
+        {
+            contextMenu.Items.Add("Hide Overlay", null, (s, e) => HideWindow());
+        }
+        else
+        {
+            contextMenu.Items.Add("Show Overlay", null, (s, e) => ShowWindow());
+        }
+        
+        contextMenu.Items.Add("Exit", null, (s, e) => ExitApp());
+        if (_notifyIcon != null)
+        {
+            _notifyIcon.ContextMenuStrip = contextMenu;
+        }
     }
 
     protected override void OnSourceInitialized(EventArgs e)
@@ -71,8 +92,29 @@ public partial class MainWindow : Window
     private void ShowWindow()
     {
         this.Show();
-        this.WindowState = WindowState.Normal;
+        this.WindowState = WindowState.Maximized; // Changed from Normal to maintain fullscreen
         this.Activate();
+        _isOverlaying = true;
+        UpdateContextMenu(); // Update menu after state change
+    }
+
+    private void HideWindow()
+    {
+        this.Hide();
+        _isOverlaying = false;
+        UpdateContextMenu(); // Update menu after state change
+    }
+
+    private void ToggleWindow()
+    {
+        if (_isOverlaying)
+        {
+            HideWindow();
+        }
+        else
+        {
+            ShowWindow();
+        }
     }
 
     private void ExitApp()

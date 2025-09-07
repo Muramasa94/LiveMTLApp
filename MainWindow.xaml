@@ -18,7 +18,6 @@
                    FontSize="32"
                    Canvas.Left="100"
                    Canvas.Top="100"
-                   FontWeight="Bold"
-                   Effect="{DynamicResource}" />
+                   FontWeight="Bold" />
     </Canvas>
 </Window>
